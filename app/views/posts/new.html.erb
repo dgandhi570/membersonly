@@ -1,0 +1,24 @@
+<%= form_for @post ,html:{"data-turbo"=>false} do |form| %>
+  <div>
+    <%= form.label :topic %><br>
+    <%= form.text_field :topic %>
+    <% @post.errors.full_messages_for(:topic).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %><br>
+    <%# <%= form.hidden_field :user_id, value: current_user[:id] %> %>
+    <% @post.errors.full_messages_for(:body).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+
+<% end %>
